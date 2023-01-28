@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     req.statusCode;
     req.statusMessage;
     req.client;
-    // console.log('req: ', req);
+    console.log('req.client: ', req.client);
 
     return res.json({
         hello:         'Hello, Vercel!!!',
@@ -45,7 +45,6 @@ export default async function handler(req, res) {
         method:        req.method,
         statusCode:    req.statusCode,
         statusMessage: req.statusMessage,
-        client:        req.client,
     });
 }
 
