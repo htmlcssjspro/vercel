@@ -16,6 +16,9 @@ export default async function handler(req, res) {
     console.log('req.cookies: ', req.cookies);
     console.log('req.method: ', req.method);
 
+    const keys = Object.keys(req);
+    console.log('keys: ', keys);
+
     // console.log('req: ', req);
 
     return res.send('Hello, Vercel!!!');
