@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     console.log('req.cookies: ', req.cookies);
     console.log('req.method: ', req.method);
 
-    console.log('req: ', req);
+    // console.log('req: ', req);
 
     return res.send('Hello, Vercel!!!');
 }
