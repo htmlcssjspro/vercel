@@ -11,17 +11,42 @@ const drainJson = req =>
 
 
 export default async function handler(req, res) {
-    console.log('req.query: ', req.query);
-    console.log('req.body: ', req.body);
-    console.log('req.cookies: ', req.cookies);
-    console.log('req.method: ', req.method);
 
-    const keys = Object.keys(req);
-    console.log('keys: ', keys);
+    const keys =  [
+        '_readableState', '_events', '_eventsCount', '_maxListeners', '_consuming', '_dumped',
+        'httpVersionMajor', 'httpVersionMinor', 'httpVersion',
+        'rawHeaders', 'rawTrailers',
+        'complete',
+        'aborted',
+        'upgrade',
+        'socket',
+        'url',
+        'method',
+        'statusCode', 'statusMessage',
+        'client',
+        'query',
+        'body',
+        'cookies',
+    ];
 
+    req.query;
+    req.body;
+    req.cookies;
+    req.method;
+    req.url;
+    req.statusCode;
+    req.statusMessage;
+    req.client;
     // console.log('req: ', req);
 
-    return res.send('Hello, Vercel!!!');
+    return res.json({
+        hello:         'Hello, Vercel!!!',
+        url:           req.url,
+        method:        req.method,
+        statusCode:    req.statusCode,
+        statusMessage: req.statusMessage,
+        client:        req.client,
+    });
 }
 
 function handlerExample(req, res) {
