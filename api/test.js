@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
     console.log('req: ', req);
 
-    return res.json(req);
+    return res.send(req);
 }
 
 function handlerExample(req, res) {
