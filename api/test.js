@@ -8,26 +8,17 @@ const drainJson = req =>
             resolve(JSON.parse(data));
         });
     });
-const drainData = req =>
-    new Promise((resolve) => {
-        let data = '';
-        req.on('data', (chunk) => {
-            data += chunk;
-        });
-        req.on('end', () => {
-            resolve(data);
-        });
-    });
+
 
 export default async function handler(req, res) {
-    req.query; // An object containing the request's query string, or {} if the request does not have a query string.
-    req.body; // An object containing the body sent by the request, or null if no body is sent.
-    req.cookies; // An object containing the cookies sent by the request, or {} if the request contains no cookies.
+    console.log('req.query: ', req.query);
+    console.log('req.body: ', req.body);
+    console.log('req.cookies: ', req.cookies);
+    console.log('req.method: ', req.method);
 
-    const data = await drainData(req);
-    console.log('data: ', data);
+    console.log('req: ', req);
 
-    return res.send(data);
+    return res.json(req);
 }
 
 function handlerExample(req, res) {
