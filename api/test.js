@@ -9,14 +9,15 @@ const drainJson = req =>
         });
     });
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     req.query; // An object containing the request's query string, or {} if the request does not have a query string.
     req.body; // An object containing the body sent by the request, or null if no body is sent.
     req.cookies; // An object containing the cookies sent by the request, or {} if the request contains no cookies.
 
-    console.log('req: ', req);
-    // return res.send(`Hello ${name}!`);
-    return res.json(req);
+    const data = await drainJson(req);
+    console.log('data: ', data);
+
+    return res.json(data);
 }
 
 function handlerExample(req, res) {
