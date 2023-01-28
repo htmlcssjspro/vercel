@@ -11,8 +11,34 @@ const drainJson = req =>
 
 
 export default async function handler(req, res) {
+    const getKeys = obj => Object.keys(obj);
 
-    const keys =  [
+
+    req.query;
+    req.body;
+    req.cookies;
+    req.method;
+    req.url;
+    req.statusCode;
+    req.statusMessage;
+    req.client;
+    console.log('req.client: ', getKeys(req.client));
+
+    return res.json({
+        hello:         'Hello, Vercel!!!',
+        url:           req.url,
+        method:        req.method,
+        statusCode:    req.statusCode,
+        statusMessage: req.statusMessage,
+    });
+}
+
+function handlerExample(req, res) {
+    req.query; // An object containing the request's query string, or {} if the request does not have a query string.
+    req.body; // An object containing the body sent by the request, or null if no body is sent.
+    req.cookies; // An object containing the cookies sent by the request, or {} if the request contains no cookies.
+
+    const reqKeys =  [
         '_readableState', '_events', '_eventsCount', '_maxListeners', '_consuming', '_dumped',
         'httpVersionMajor', 'httpVersionMinor', 'httpVersion',
         'rawHeaders', 'rawTrailers',
@@ -28,30 +54,6 @@ export default async function handler(req, res) {
         'body',
         'cookies',
     ];
-
-    req.query;
-    req.body;
-    req.cookies;
-    req.method;
-    req.url;
-    req.statusCode;
-    req.statusMessage;
-    req.client;
-    console.log('req.client: ', req.client);
-
-    return res.json({
-        hello:         'Hello, Vercel!!!',
-        url:           req.url,
-        method:        req.method,
-        statusCode:    req.statusCode,
-        statusMessage: req.statusMessage,
-    });
-}
-
-function handlerExample(req, res) {
-    req.query; // An object containing the request's query string, or {} if the request does not have a query string.
-    req.body; // An object containing the body sent by the request, or null if no body is sent.
-    req.cookies; // An object containing the cookies sent by the request, or {} if the request contains no cookies.
 
     const code = 200;
     const body = req.body;
