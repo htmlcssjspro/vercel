@@ -22,7 +22,9 @@ export default async function handler(req, res) {
     req.statusCode;
     req.statusMessage;
     req.client;
-    console.log('req.client: ', getKeys(req.client));
+    // console.log('req.client: ', getKeys(req.client));
+
+    console.log('req.client.server: ', req.client.server);
 
     return res.json({
         hello:         'Hello, Vercel!!!',
